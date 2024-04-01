@@ -16,11 +16,13 @@ const server = http.createServer((req, res) => {
     </div>
     <script>
             window.open("", "_blank", "width=300,height=300,noopener");
-            function myFunction(){
+            async function myFunction(){
               var player = document.getElementById('youtube-player');
               player.src += '?autoplay=1'; 
               let myArr = "Never gonna, give you up, never gonna, let you down, never gonna, run around, and desert you, never gonna, make you cry, never gonna, say goodbye, never gonna, tell a lie, and hurt you".split(",");
               let i =0 
+              document.getElementById("btn").style.display = "none"
+              await new Promise(resolve => setTimeout(resolve, 2000));
               let intervalId= setInterval(()=>{
                 let url = window.location.href+ "/"+myArr[i].split(" ").join("_")
                 window.open(url, "_blank", "width=800,height=800,noopener");
